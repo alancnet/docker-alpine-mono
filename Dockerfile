@@ -7,4 +7,8 @@ RUN apk add --update curl wget ca-certificates tar xz autoconf libtool pkgconf m
       tar xJf /tmp/mono.pkg.tar.xz && \
       mozroots --url http://anduin.linuxfromscratch.org/BLFS/other/certdata.txt --import --ask-remove && \
       apk del tar xz autoconf libtool pkgconf automake && \
-      rm -rf /tmp/* /var/cache/apk/* /fsharp
+      update-ca-certificates && \
+      wget https://curl.haxx.se/ca/cacert.pem && \
+      cert-sync cacert.pem && \
+      rm -rf /tmp/src /cacert.pem && \
+      rm -rf /tmp/* /var/cache/apk/*
