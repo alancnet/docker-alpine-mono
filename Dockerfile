@@ -1,4 +1,4 @@
-FROM ocelotuproar/alpine-glibc:alpine-3.4
+FROM alancnet/alpine-glibc:alpine-3.4
 
 RUN apk add --update curl wget ca-certificates tar xz autoconf libtool pkgconf make git automake && \
       cd /tmp && \
